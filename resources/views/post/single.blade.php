@@ -38,6 +38,37 @@
   <hr>
 
   <div class="container">
+    
+    <form action="{{ route('ratings.store', $post) }}" method="post">
+      {{ csrf_field() }}
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+            <label for="value">Avaliar</label>
+            <input class="form-control" type="range" min="0" max="10" name="value" list="marcadores">
+
+            <datalist id="marcadores">
+              <option value="0"></option>
+              <option value="1"></option>
+              <option value="2"></option>
+              <option value="3"></option>
+              <option value="4"></option>
+              <option value="5"></option>
+              <option value="6"></option>
+              <option value="7"></option>
+              <option value="8"></option>
+              <option value="9"></option>
+              <option value="10"></option>
+            </datalist>
+        </div>
+
+        <div class="col-lg-8 col-md-10 mx-auto text-right">
+          <button type="submit">Enviar</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <h3>Comentários</h3>
@@ -72,7 +103,7 @@
           <button type="submit">Enviar</button>
         </div>
       </div>
-  </form>
+    </form>
   </div>
 
 
