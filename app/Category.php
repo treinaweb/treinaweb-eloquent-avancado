@@ -18,6 +18,7 @@ class Category extends Model
         return $this->belongsTomany('App\Post', 'category_post', 'category_id', 'post_id')
                     ->as('relacao')
                     ->withTimestamps();
+                    //->wherePivot('active', 1);
                     //->withPivot('username');
     }
 }
