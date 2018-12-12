@@ -40,8 +40,9 @@ class Post extends Model
     public function categories()
     {
         return $this->belongsToMany('App\Category', 'category_post', 'post_id', 'category_id')
-                    ->as('relacao')
+                    ->using('App\CategoryPost')
                     ->withTimestamps();
+                    //->as('relacao')
                     //->wherePivot('active', 1);
                     //->withPivot('username');
     }
