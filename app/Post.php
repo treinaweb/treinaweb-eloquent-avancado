@@ -3,10 +3,15 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Post extends Model
 {
+    use SoftDeletes;
+
     protected $guarded = ['id', 'created_at', 'updated_at'];
+
+    protected $date = ['deleted_at'];
 
     /**
      * Mapeia o relacionamento com o model details
