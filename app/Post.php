@@ -4,9 +4,24 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Builder;
 
 class Post extends Model
 {
+    /**
+     * Configura itens do model
+     *
+     * @return void
+     */
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::addGlobalScope('orderByCreatedAt', function (Builder $builder) {
+            $builder->orderBy('created_at', 'desc');
+        });
+    }
+
     use SoftDeletes;
 
     protected $guarded = ['id', 'created_at', 'updated_at'];
