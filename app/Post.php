@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Scopes\VisibleScope;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Builder;
@@ -20,6 +21,8 @@ class Post extends Model
         static::addGlobalScope('orderByCreatedAt', function (Builder $builder) {
             $builder->orderBy('created_at', 'desc');
         });
+
+        static::addGlobalScope(new VisibleScope);
     }
 
     use SoftDeletes;
