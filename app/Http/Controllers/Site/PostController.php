@@ -15,6 +15,7 @@ class PostController extends Controller
                         $query->where('status', 'publicado')
                               ->where('visibility', 'publico');
                     })
+                    ->withCount('comments')
                     ->paginate(10);
 
         if (request()->query('categories')) {
