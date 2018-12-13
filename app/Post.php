@@ -85,4 +85,15 @@ class Post extends Model
         return $query->where('approved', $approved);
     }
 
+    /**
+     * Filtra posts com categorias relacionadas
+     *
+     * @param [type] $query
+     * @return void
+     */
+    public function scopeHasCategories($query)
+    {
+        return $query->whereHas('categories');
+    }
+
 }
