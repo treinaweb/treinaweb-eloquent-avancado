@@ -26,6 +26,6 @@ class PublishOnTwitter
      */
     public function handle(PostCreated $event)
     {
-        \Log::debug('Publicado no Twitter');
+        \Log::debug('O Post ' . $event->post->id . ' foi publicado no Twitter');
     }
 }
