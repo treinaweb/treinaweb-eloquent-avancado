@@ -23,6 +23,8 @@ class AppServiceProvider extends ServiceProvider
         Blade::if('posttype', function($posttype, $c) {
             return $posttype == $c;
         });
+
+        \App\Post::observe(\App\Observers\PostObserver::class);
     }
 
     /**
