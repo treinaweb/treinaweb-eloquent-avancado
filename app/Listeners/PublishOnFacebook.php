@@ -26,6 +26,6 @@ class PublishOnFacebook
      */
     public function handle(PostCreated $event)
     {
-        //
+        \Log::debug('Publicado no Facebook');
     }
 }

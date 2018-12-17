@@ -26,6 +26,6 @@ class PublishOnTwitter
      */
     public function handle(PostCreated $event)
     {
-        //
+        \Log::debug('Publicado no Twitter');
     }
 }
