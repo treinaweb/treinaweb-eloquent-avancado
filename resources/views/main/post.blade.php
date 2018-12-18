@@ -4,7 +4,7 @@
       {{ $post->title }}
     </h2>
     <h3 class="post-subtitle">
-        {{ $post->content }}
+        {{ $post->summary_content }}
     </h3>
   </a>
   <p class="post-meta">
