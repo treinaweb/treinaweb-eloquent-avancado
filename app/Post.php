@@ -30,7 +30,7 @@ class Post extends Model
 
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
-    protected $date = ['deleted_at'];
+    protected $dates = ['deleted_at'];
 
     protected $dispatchesEvents = [
         'created' => PostCreated::class
