@@ -17,4 +17,15 @@ class Comment extends Model
    {
      return $this->belongsTo('App\Post', 'post_id', 'id');
    }
+
+   /**
+    * Define titulo com primeira letra maiuscula
+    *
+    * @param [type] $value
+    * @return void
+    */
+   public function setTitleAttribute($value)
+   {
+     $this->attributes['title'] = ucfirst($value);
+   }
 }
