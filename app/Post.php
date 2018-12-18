@@ -40,6 +40,8 @@ class Post extends Model
         'created' => PostCreated::class
     ];
 
+    protected $appends = ['summary_content'];
+
     /**
      * Mapeia o relacionamento com o model details
      *
