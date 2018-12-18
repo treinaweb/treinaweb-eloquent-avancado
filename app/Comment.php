@@ -8,7 +8,9 @@ class Comment extends Model
 {
   protected $fillable = ['title', 'content'];
 
-  protected $hidden = ['title'];
+  //protected $hidden = ['title'];
+
+  protected $visible = ['title', 'content'];
 
   /**
    * Mapeia o relacionamento com o model de posts
