@@ -6,10 +6,23 @@ use Illuminate\Database\Eloquent\Model;
 
 class Comment extends Model
 {
+   /**
+   * Libera definição de dados em massa
+   *
+   * @var array
+   */
   protected $fillable = ['title', 'content'];
 
+  /**
+   * Esconde os campos na serialização
+   */
   //protected $hidden = ['title'];
 
+  /**
+   * Mostra os campos na serialização
+   *
+   * @var array
+   */
   protected $visible = ['title', 'content'];
 
   /**

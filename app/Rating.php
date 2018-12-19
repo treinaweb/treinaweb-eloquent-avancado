@@ -6,6 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Rating extends Model
 {
+    /**
+     * Libera definição de dados em massa
+     *
+     * @var array
+     */
     protected $fillable = ['value'];
 
     /**

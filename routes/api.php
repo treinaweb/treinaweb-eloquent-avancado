@@ -17,10 +17,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('post/{id}', function ($id) {
-    try {
-        return new \App\Http\Resources\Post(\App\Post::findOrFail($id));
-    } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
-        return response(['message'=>'Not Found'], 404);
-    }
-});
+Route::get('post/{id}', 'Site\PostApiController@show');

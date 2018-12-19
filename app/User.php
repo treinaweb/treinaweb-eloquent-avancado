@@ -10,8 +10,12 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    /**
+     * Define banco de dados do model
+     *
+     * @var string
+     */
     protected $connection = 'blog2';
-
 
     /**
      * The attributes that are mass assignable.

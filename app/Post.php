@@ -11,6 +11,50 @@ use App\Events\PostCreated;
 class Post extends Model
 {
     /**
+     * Usa Soft deleting
+     */
+    use SoftDeletes;
+
+    /**
+     * bloqueia definição de dados em massa
+     *
+     * @var array
+     */
+    protected $guarded = ['id', 'created_at', 'updated_at'];
+
+    /**
+     * Define os campos do tipo data
+     *
+     * @var array
+     */
+    protected $dates = ['deleted_at'];
+
+    /**
+     * Converte tipos de dados
+     *
+     * @var array
+     */
+    protected $casts = [
+        'approved' => 'boolean'
+    ];
+
+    /**
+     * Relaciona os eventos ao model
+     *
+     * @var array
+     */
+    protected $dispatchesEvents = [
+        'created' => PostCreated::class
+    ];
+
+    /**
+     * Anexa campo criado via assessor a serialização
+     *
+     * @var array
+     */
+    protected $appends = ['summary_content'];
+
+    /**
      * Configura itens do model
      *
      * @return void
@@ -25,22 +69,6 @@ class Post extends Model
 
         static::addGlobalScope(new VisibleScope);
     }
-
-    use SoftDeletes;
-
-    protected $guarded = ['id', 'created_at', 'updated_at'];
-
-    protected $dates = ['deleted_at'];
-
-    protected $casts = [
-        'approved' => 'boolean'
-    ];
-
-    protected $dispatchesEvents = [
-        'created' => PostCreated::class
-    ];
-
-    protected $appends = ['summary_content'];
 
     /**
      * Mapeia o relacionamento com o model details
